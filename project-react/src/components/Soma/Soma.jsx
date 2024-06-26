@@ -1,12 +1,11 @@
 import React from 'react'
 
-function Soma() {
+function Soma({objetoInfo}) {
   return (
-   <>
-    <div>
-        <p>Total de gastos: 2000</p>
-    </div>
-   </>
+   <div>
+    
+    
+   </div>
   )
 }
 

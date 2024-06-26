@@ -8,16 +8,44 @@ import Soma from './components/Soma/Soma'
 function App() {
 
   //Setando os estados
-  const [dataC, setDataC] = React.useState();
-  const [item, setItem] = React.useState();
-  const [tipoGasto, setTipoGasto] = React.useState();
-  const [valor, setValor] = React.useState();
+  const [dataC, setDataC] = React.useState('');
+  const [item, setItem] = React.useState('');
+  const [tipoGasto, setTipoGasto] = React.useState('');
+  const [valor, setValor] = React.useState('');
+  const [objetoInfo, setObjetoInfo] = React.useState([]);
+  const [msgE,  setMsgE] = React.useState();
+
+  let id = 1;
+  let newObjInfo;
 
   const handleSubmit = (event)=>{
     event.preventDefault();
-    //console.log('Enviei')
-    console.log( dataC,item,tipoGasto,valor )
+
+
+    newObjInfo = {
+      "data": dataC,
+      "item": item,
+      "tipoGasto": tipoGasto,
+      "valor": valor
+    }
+
+    if(item === ""){
+      setMsgE("Preencha o nome do item!")
+      return false
+    }
+    if(valor === ""){
+      setMsgE("Preencha o valor!")
+      return false
+    }
+  
+    setMsgE("")
+  
+    const arrayObj = [...objetoInfo, newObjInfo]
+    setObjetoInfo(arrayObj)
+
+    console.log(objetoInfo)
   }
+
 
   return(
 
@@ -35,10 +63,13 @@ function App() {
          item={item}
          tipoGasto={tipoGasto}
          valor={valor}
+
+         msgE={msgE}
+         setMsgE={setMsgE}
          
          />
-        <Table/>
-        <Soma/>
+        <Table objetoInfo={objetoInfo}/>
+        <Soma  objetoInfo={objetoInfo}/>
       <Footer/>
     </>
 

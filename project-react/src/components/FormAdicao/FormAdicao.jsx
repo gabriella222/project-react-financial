@@ -1,6 +1,6 @@
 import React from 'react'
 
-function FormAdicao({handleSubmit, setDataC, setItem, setIipoGasto, setValor, dataC, item, tipoGasto, valor}) {
+export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGasto, setValor, dataC, item, tipoGasto, valor,setMsgE,msgE}) {
   return (
    <>
     <form action="submit">
@@ -9,9 +9,10 @@ function FormAdicao({handleSubmit, setDataC, setItem, setIipoGasto, setValor, da
       <label htmlFor="">
         Data da compra
         <input 
-         type="Date" 
+         type="date" 
          value={dataC}
          onChange={(event)=>{setDataC(event.target.value)}}
+         required
          />  
       </label>     
     </div>
@@ -23,21 +24,25 @@ function FormAdicao({handleSubmit, setDataC, setItem, setIipoGasto, setValor, da
              type="text"
              value={item}
              onChange={(event)=>{setItem(event.target.value)}}
+             required
             />
           </label>
+         
       </div>
       <div>
           <label htmlFor="">
             Tipo de gasto
             <select 
-              name="" 
-              id=""
+              name="Selecione uma opção"
+              defaultValue="opcao1"
               value={tipoGasto}
-              onChange={(event)=>{setIipoGasto(event.target.value)}}
+              onChange={(event)=>{setTipoGasto(event.target.value)}}
+              required
               >
-              <option value="">Opção 1</option>
-              <option value="">Opção 2</option>
-              <option value="">Opção 3</option>
+              <option>Selecione uma opção</option>
+              <option value="opcao1">Opção 1</option>
+              <option value="opcao2">Opção 2</option>
+              <option value="opcao3">Opção 3</option>
             </select>
           </label>
       </div>
@@ -46,11 +51,14 @@ function FormAdicao({handleSubmit, setDataC, setItem, setIipoGasto, setValor, da
           <label htmlFor="">
             Valor
             <input 
+             required
              type="text"
              value={valor}
              onChange={(event)=>{setValor(event.target.value)}}
+             
              />
           </label>
+          { msgE != '' &&  <p>{msgE}</p> }
       </div>
       
       <button onClick={handleSubmit}>Inserir</button>
@@ -61,4 +69,4 @@ function FormAdicao({handleSubmit, setDataC, setItem, setIipoGasto, setValor, da
   )
 }
 
-export default FormAdicao
+
