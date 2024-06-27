@@ -23,7 +23,8 @@ export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGas
             <input 
              type="text"
              value={item}
-             onChange={(event)=>{setItem(event.target.value)}}
+             onChange={
+              (event)=>{setItem(event.target.value)}}
              required
             />
           </label>
@@ -34,15 +35,15 @@ export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGas
             Tipo de gasto
             <select 
               name="Selecione uma opção"
-              defaultValue="opcao1"
               value={tipoGasto}
+              // defaultValue="op1"
               onChange={(event)=>{setTipoGasto(event.target.value)}}
-              required
+            
               >
               <option>Selecione uma opção</option>
-              <option value="opcao1">Opção 1</option>
-              <option value="opcao2">Opção 2</option>
-              <option value="opcao3">Opção 3</option>
+              <option value="op1">op1</option>
+              <option value="op2">op2</option>
+              <option value="op3">op3</option>
             </select>
           </label>
       </div>
@@ -52,9 +53,14 @@ export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGas
             Valor
             <input 
              required
-             type="text"
+             type="number"
+             step='any'
              value={valor}
-             onChange={(event)=>{setValor(event.target.value)}}
+             onChange={
+                (event)=>{
+                 setValor(event.target.value)
+              }
+            }
              
              />
           </label>

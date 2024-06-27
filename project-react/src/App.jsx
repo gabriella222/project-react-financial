@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import FormAdicao from './components/FormAdicao/FormAdicao'
+import FormAdicao from './components/FormAdicao/Formadicao'
 import Table from './components/Table/Table'
 import Soma from './components/Soma/Soma'
 
@@ -13,7 +13,7 @@ function App() {
   const [tipoGasto, setTipoGasto] = React.useState('');
   const [valor, setValor] = React.useState('');
   const [objetoInfo, setObjetoInfo] = React.useState([]);
-  const [msgE,  setMsgE] = React.useState();
+  const [msgE,  setMsgE] = React.useState('');
 
   let id = 1;
   let newObjInfo;
@@ -22,6 +22,23 @@ function App() {
     event.preventDefault();
 
 
+    if(item === ""){
+      setMsgE("Preencha o nome do item!")
+      console.log(msgE)
+      return false
+      
+    }
+    if(valor === ""){
+      setMsgE("Preencha o valor!")
+      console.log(msgE)
+      return false
+    }
+    
+    if(tipoGasto === ""){
+      setMsgE("Preencha o tipo de gasto!")
+      return false
+    }
+    
     newObjInfo = {
       "data": dataC,
       "item": item,
@@ -29,14 +46,8 @@ function App() {
       "valor": valor
     }
 
-    if(item === ""){
-      setMsgE("Preencha o nome do item!")
-      return false
-    }
-    if(valor === ""){
-      setMsgE("Preencha o valor!")
-      return false
-    }
+
+
   
     setMsgE("")
   
