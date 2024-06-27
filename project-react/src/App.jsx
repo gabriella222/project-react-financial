@@ -45,12 +45,9 @@ function App() {
       "tipoGasto": tipoGasto,
       "valor": valor
     }
-
-
-
   
     setMsgE("")
-  
+      
     const arrayObj = [...objetoInfo, newObjInfo]
     setObjetoInfo(arrayObj)
 

@@ -1,39 +1,41 @@
 import React from 'react'
+import './FormAdd.css'
 
 export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGasto, setValor, dataC, item, tipoGasto, valor,setMsgE,msgE}) {
   return (
    <>
-    <form action="submit">
+    <form action="submit" className='formulario'>
 
     <div>
       <label htmlFor="">
         Data da compra
-        <input 
+      </label>     
+      <input 
          type="date" 
          value={dataC}
          onChange={(event)=>{setDataC(event.target.value)}}
          required
          />  
-      </label>     
     </div>
       
       <div>
           <label htmlFor="">
             Item
-            <input 
+          </label>
+          <input 
              type="text"
              value={item}
              onChange={
               (event)=>{setItem(event.target.value)}}
              required
             />
-          </label>
          
       </div>
       <div>
           <label htmlFor="">
             Tipo de gasto
-            <select 
+          </label>
+          <select 
               name="Selecione uma opção"
               value={tipoGasto}
               // defaultValue="op1"
@@ -45,13 +47,13 @@ export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGas
               <option value="op2">op2</option>
               <option value="op3">op3</option>
             </select>
-          </label>
       </div>
 
      <div>
           <label htmlFor="">
             Valor
-            <input 
+          </label>
+          <input 
              required
              type="number"
              step='any'
@@ -63,7 +65,6 @@ export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGas
             }
              
              />
-          </label>
           { msgE != '' &&  <p>{msgE}</p> }
       </div>
       
