@@ -22,22 +22,28 @@ function App() {
     event.preventDefault();
 
 
+    if(dataC === ""){
+      setMsgE("Preencha a data!")
+      return false
+    }
+
     if(item === ""){
       setMsgE("Preencha o nome do item!")
       console.log(msgE)
       return false
       
     }
-    if(valor === ""){
-      setMsgE("Preencha o valor!")
-      console.log(msgE)
-      return false
-    }
     
     if(tipoGasto === ""){
       setMsgE("Preencha o tipo de gasto!")
       return false
     }
+    if(valor === ""){
+      setMsgE("Preencha o valor!")
+      console.log(msgE)
+      return false
+    }
+   
     
     newObjInfo = {
       "data": dataC,

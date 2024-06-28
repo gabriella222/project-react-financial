@@ -43,9 +43,9 @@ export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGas
             
               >
               <option>Selecione uma opção</option>
-              <option value="op1">op1</option>
-              <option value="op2">op2</option>
-              <option value="op3">op3</option>
+              <option value="Alimentação">Alimentação</option>
+              <option value="Despesas Mensais">Despesas Mensais</option>
+              <option value="Outros">Outros</option>
             </select>
       </div>
 
@@ -68,7 +68,7 @@ export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGas
           { msgE != '' &&  <p>{msgE}</p> }
       </div>
       
-      <button onClick={handleSubmit}>Inserir</button>
+      <button className='btn' onClick={handleSubmit}>Inserir</button>
       
      
     </form>

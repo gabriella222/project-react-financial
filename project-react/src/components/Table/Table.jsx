@@ -1,13 +1,14 @@
 import React from 'react'
+import  './Table.css'
 
 function Table({objetoInfo}) {
   return (
 
     <>
-     <div>
+     <div  className='header'>
         <table>
            <thead>
-                <tr>
+                <tr className='cabecalho title'>
                     <th>Data</th>
                     <th>Item</th>
                     <th>Tipo de Gasto</th>
@@ -17,11 +18,11 @@ function Table({objetoInfo}) {
             <tbody>
            {objetoInfo.map((ob,index)=>( 
            
-                    <tr key={index}>
+                    <tr key={index} className='cabecalho cc'>
                         <td>{ob.data}</td>
                         <td>{ob.item}</td>
                         <td>{ob.tipoGasto}</td>
-                        <td>{ob.valor}</td>
+                        <td>R$ {ob.valor}</td>
                     </tr>
             ))}
             </tbody>

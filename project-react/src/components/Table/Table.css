@@ -1,0 +1,48 @@
+table{
+    display: block;
+    padding-top: 50px;
+    margin: 0 auto;
+}
+
+td{
+   
+    padding-top: 10px;
+
+}
+/* .header{
+    display: grid;
+    grid-template-rows: auto;
+    justify-items: center;
+    
+} */
+
+.header{
+    display: grid;
+    grid-template-rows: auto;
+
+}
+
+.cabecalho{
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    justify-items:center;
+    margin-bottom: 10px;
+}
+
+/* thead > tr{
+    margin-bottom: 10px;
+} */
+
+.cc > td{
+    text-align: center;
+    display: absolute;
+}
+
+/* tr::after{
+    display: relative;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #D7DDDD;
+    margin-top:10px;
+} */
