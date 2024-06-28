@@ -2,6 +2,8 @@ import React from 'react'
 import  './Table.css'
 
 function Table({objetoInfo}) {
+
+
   return (
 
     <>
@@ -16,15 +18,19 @@ function Table({objetoInfo}) {
                 </tr>
             </thead> 
             <tbody>
-           {objetoInfo.map((ob,index)=>( 
-           
-                    <tr key={index} className='cabecalho cc'>
-                        <td>{ob.data}</td>
-                        <td>{ob.item}</td>
-                        <td>{ob.tipoGasto}</td>
-                        <td>R$ {ob.valor}</td>
-                    </tr>
-            ))}
+              {
+          
+                objetoInfo.map((ob,index)=>( 
+            
+                  <tr key={index} className='cabecalho cc'>
+                      <td>{ob.data}</td>
+                      <td>{ob.item}</td>
+                      <td>{ob.tipoGasto}</td>
+                      <td>R$ {ob.valor}</td>
+                  </tr>
+                  ))
+            }
+            
             </tbody>
           
                     

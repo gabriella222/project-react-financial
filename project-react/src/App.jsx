@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import FormAdicao from './components/FormAdicao/Formadicao'
+import FormAdicao from './components/FormAdicao/FormAdicao'
 import Table from './components/Table/Table'
 import Soma from './components/Soma/Soma'
 
@@ -20,7 +20,6 @@ function App() {
 
   const handleSubmit = (event)=>{
     event.preventDefault();
-
 
     if(dataC === ""){
       setMsgE("Preencha a data!")
@@ -61,29 +60,37 @@ function App() {
   }
 
 
+  if(objetoInfo === "") return console.log('oi')
+
   return(
 
     <>
+
       <Header />
+      <div className='container'>
         <FormAdicao 
-         handleSubmit={handleSubmit} 
+          handleSubmit={handleSubmit} 
 
-         setDataC={setDataC} 
-         setItem={setItem} 
-         setTipoGasto={setTipoGasto} 
-         setValor={setValor}
+          setDataC={setDataC} 
+          setItem={setItem} 
+          setTipoGasto={setTipoGasto} 
+          setValor={setValor}
 
-         dataC={dataC}
-         item={item}
-         tipoGasto={tipoGasto}
-         valor={valor}
+          dataC={dataC}
+          item={item}
+          tipoGasto={tipoGasto}
+          valor={valor}
 
-         msgE={msgE}
-         setMsgE={setMsgE}
-         
+          msgE={msgE}
+          setMsgE={setMsgE}
+          
          />
-        <Table objetoInfo={objetoInfo}/>
+         
+         {objetoInfo.length > 0 ? <Table objetoInfo={objetoInfo}/>  : <p className='title-not-items'>Não há itens para serem exibidos</p>}
+
+       
         <Soma  objetoInfo={objetoInfo}/>
+        </div>
       <Footer/>
     </>
 

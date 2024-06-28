@@ -1,7 +1,21 @@
 body{
     font-family: "Arial";
-    max-height: 800px;
     margin: 0 auto;
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 1200px;
+    min-height: 100vh;
 
 
+}
+
+.title-not-items{
+    text-align: center;
+    /* border: 1px solid #FFF9B5; */
+    border-radius: 5px;
+    padding: 10px 50px;
+    /* background: #FFFCD7; */
+    color: #494304;
 }
