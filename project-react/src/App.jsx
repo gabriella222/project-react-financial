@@ -85,7 +85,7 @@ function App() {
           setMsgE={setMsgE}
           
          />
-         
+         { msgE != '' &&  <p className='errorMessage'>{msgE}</p> }
          {objetoInfo.length > 0 ? <Table objetoInfo={objetoInfo}/>  : <p className='title-not-items'>Não há itens para serem exibidos</p>}
 
        

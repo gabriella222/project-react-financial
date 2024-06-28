@@ -12,7 +12,7 @@ function Table({objetoInfo}) {
            <thead>
                 <tr className='cabecalho title'>
                     <th>Data</th>
-                    <th>Item</th>
+                    <th>Título</th>
                     <th>Tipo de Gasto</th>
                     <th>Valor</th>
                 </tr>

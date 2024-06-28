@@ -19,3 +19,13 @@ body{
     /* background: #FFFCD7; */
     color: #494304;
 }
+
+.errorMessage{
+    margin-left: 85px;
+    margin-right: 85px;
+    background: #FFFCD7;
+    padding: 15px 50px;
+    color: #494304;
+    border: 1px solid #FFF9B5;
+    border-radius: 5px;
+}

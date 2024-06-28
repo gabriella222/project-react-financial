@@ -20,7 +20,7 @@ export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGas
       
       <div>
           <label htmlFor="">
-            Item
+            Título
           </label>
           <input 
              type="text"
@@ -65,7 +65,7 @@ export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGas
             }
              
              />
-          { msgE != '' &&  <p>{msgE}</p> }
+          
       </div>
       
       <button className='btn' onClick={handleSubmit}>Inserir</button>

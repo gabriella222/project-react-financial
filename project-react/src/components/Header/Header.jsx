@@ -6,10 +6,10 @@ function Header() {
     <>
       <div className='background-header'>
         <nav className='navH'>
-            <div className='logo-header'>*logo*</div>
+            <div className='logo-header'>FN</div>
             <ul className='list-menu'>
                 <li><a href='#'>Home</a></li>
-                <li><a href='#'>Acesso ao menu</a></li>
+                {/* <li><a href='#'>Acesso ao menu</a></li> */}
             </ul>
         </nav>
       </div>
