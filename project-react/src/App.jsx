@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import FormAdicao from './components/FormAdicao/FormAdicao'
@@ -18,6 +18,15 @@ function App() {
   let id = 1;
   let newObjInfo;
 
+  useEffect(()=>{ 
+    let recup = localStorage.getItem('financial') 
+    if(recup){
+      recup = JSON.parse(recup)
+      setObjetoInfo(recup)
+    }
+  },[])
+  
+  
   const handleSubmit = (event)=>{
     event.preventDefault();
 
@@ -27,12 +36,10 @@ function App() {
     }
 
     if(item === ""){
-      setMsgE("Preencha o nome do item!")
+      setMsgE("Preencha o título!")
       console.log(msgE)
       return false
-      
     }
-    
     if(tipoGasto === ""){
       setMsgE("Preencha o tipo de gasto!")
       return false
@@ -42,7 +49,6 @@ function App() {
       console.log(msgE)
       return false
     }
-   
     
     newObjInfo = {
       "data": dataC,
@@ -56,9 +62,11 @@ function App() {
     const arrayObj = [...objetoInfo, newObjInfo]
     setObjetoInfo(arrayObj)
 
+    localStorage.setItem('financial',JSON.stringify(arrayObj))
+
     console.log(objetoInfo)
   }
-
+ 
 
   if(objetoInfo === "") return console.log('oi')
 
