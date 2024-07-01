@@ -1,7 +1,7 @@
 import React from 'react'
 import './FormAdd.css'
 
-export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGasto, setValor, dataC, item, tipoGasto, valor,setMsgE,msgE}) {
+export  default function FormAdicao({...props}) {
   return (
    <>
     <form action="submit" className='formulario'>
@@ -12,8 +12,8 @@ export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGas
       </label>     
       <input 
          type="date" 
-         value={dataC}
-         onChange={(event)=>{setDataC(event.target.value)}}
+         value={props.dataC}
+         onChange={(event)=>{props.setDataC(event.target.value)}}
          pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
          />  
     </div>
@@ -24,9 +24,9 @@ export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGas
           </label>
           <input 
              type="text"
-             value={item}
+             value={props.item}
              onChange={
-              (event)=>{setItem(event.target.value)}}
+              (event)=>{props.setItem(event.target.value)}}
              required
             />
          
@@ -37,9 +37,9 @@ export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGas
           </label>
           <select 
               name="Selecione uma opção"
-              value={tipoGasto}
+              value={props.tipoGasto}
               // defaultValue="op1"
-              onChange={(event)=>{setTipoGasto(event.target.value)}}
+              onChange={(event)=>{props.setTipoGasto(event.target.value)}}
             
               >
               <option>Selecione uma opção</option>
@@ -57,10 +57,10 @@ export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGas
              required
              type="number"
              step='any'
-             value={valor}
+             value={props.valor}
              onChange={
                 (event)=>{
-                 setValor(event.target.value)
+                  props.setValor(event.target.value)
               }
             }
              
@@ -68,7 +68,7 @@ export  default function FormAdicao({handleSubmit, setDataC, setItem, setTipoGas
           
       </div>
       
-      <button className='btn' onClick={handleSubmit}>Inserir</button>
+      <button className='btn' onClick={props.handleSubmit}>Inserir</button>
       
      
     </form>
