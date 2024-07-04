@@ -24,7 +24,7 @@ td{
 
 .cabecalho{
     display: grid;
-    grid-template-columns: 250px 250px 250px 250px;
+    grid-template-columns: 250px 250px 250px 250px 250px;
     justify-items:center;
     margin-bottom: 10px;
 }
@@ -46,3 +46,7 @@ td{
     background: #D7DDDD;
     margin-top:10px;
 } */
+
+.delete{
+    cursor: pointer;
+}

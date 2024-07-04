@@ -51,6 +51,7 @@ function App() {
     }
     
     newObjInfo = {
+      "id": Date.now(),
       "data": dataC,
       "item": item,
       "tipoGasto": tipoGasto,
@@ -66,9 +67,6 @@ function App() {
 
     console.log(objetoInfo)
   }
- 
-
-  if(objetoInfo === "") return console.log('oi')
 
   return(
 
@@ -94,7 +92,7 @@ function App() {
           
          />
          { msgE != '' &&  <p className='errorMessage'>{msgE}</p> }
-         {objetoInfo.length > 0 ? <Table objetoInfo={objetoInfo}/>  : <p className='title-not-items'>Não há itens para serem exibidos</p>}
+         {objetoInfo.length > 0 ? <Table setObjetoInfo={setObjetoInfo} objetoInfo={objetoInfo}/>  : <p className='title-not-items'>Não há itens para serem exibidos</p>}
 
        
         <Soma  objetoInfo={objetoInfo}/>
