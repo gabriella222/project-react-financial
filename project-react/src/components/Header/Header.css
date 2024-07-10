@@ -1,0 +1,29 @@
+
+.background-header{
+    background: #e7e7e7;
+    
+}
+
+.navH{
+    display: flex;
+    height: 80px;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    justify-content: space-between;
+
+}
+
+.list-menu {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+
+}
+
+.list-menu a{
+
+    text-decoration:none;
+    color: black;
+    
+}

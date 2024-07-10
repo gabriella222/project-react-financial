@@ -1,13 +1,24 @@
 import React from 'react'
+import './Soma.css'
 
-function Soma() {
+function Soma({objetoInfo}) {
+  const result = objetoInfo.reduce((acc, obj)=>(
+     acc + Number(obj.valor)
+  ),0)
+  
+  if(!result) return
   return (
-   <>
-    <div>
-        <p>Total de gastos: 2000</p>
-    </div>
-   </>
+
+    <>
+      <div className='soma'>
+         <p>Total gasto: R$ {result}</p>
+      </div>
+      
+    </>
+   
+    
   )
+
 }
 
 export default Soma

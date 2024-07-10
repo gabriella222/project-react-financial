@@ -1,11 +1,13 @@
 import React from 'react'
+import './Footer.css'
+
 
 function Footer() {
   return (
     <>
-        <div>
-           <p className='text-footer'>Todos os direitos reservados.</p> 
-        </div>
+        <footer className='text-footer'>
+           Todos os direitos reservados.
+        </footer>
     </>
   )
 }

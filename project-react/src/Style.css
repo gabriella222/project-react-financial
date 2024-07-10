@@ -1,0 +1,31 @@
+body{
+    font-family: "Arial";
+    margin: 0 auto;
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 1200px;
+    min-height: 100vh;
+
+
+}
+
+.title-not-items{
+    text-align: center;
+    /* border: 1px solid #FFF9B5; */
+    border-radius: 5px;
+    padding: 10px 50px;
+    /* background: #FFFCD7; */
+    color: #494304;
+}
+
+.errorMessage{
+    margin-left: 85px;
+    margin-right: 85px;
+    background: #FFFCD7;
+    padding: 15px 50px;
+    color: #494304;
+    border: 1px solid #FFF9B5;
+    border-radius: 5px;
+}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import FormAdicao from './components/FormAdicao/FormAdicao'
@@ -8,37 +8,94 @@ import Soma from './components/Soma/Soma'
 function App() {
 
   //Setando os estados
-  const [dataC, setDataC] = React.useState();
-  const [item, setItem] = React.useState();
-  const [tipoGasto, setTipoGasto] = React.useState();
-  const [valor, setValor] = React.useState();
+  const [dataC, setDataC] = React.useState('');
+  const [item, setItem] = React.useState('');
+  const [tipoGasto, setTipoGasto] = React.useState('');
+  const [valor, setValor] = React.useState('');
+  const [objetoInfo, setObjetoInfo] = React.useState([]);
+  const [msgE,  setMsgE] = React.useState('');
 
+  let id = 1;
+  let newObjInfo;
+
+  useEffect(()=>{ 
+    let recup = localStorage.getItem('financial') 
+    if(recup){
+      recup = JSON.parse(recup)
+      setObjetoInfo(recup)
+    }
+  },[])
+  
+  
   const handleSubmit = (event)=>{
     event.preventDefault();
-    //console.log('Enviei')
-    console.log( dataC,item,tipoGasto,valor )
+
+    if(dataC === ""){
+      setMsgE("Preencha a data!")
+      return false
+    }
+
+    if(item === ""){
+      setMsgE("Preencha o título!")
+      console.log(msgE)
+      return false
+    }
+    if(tipoGasto === ""){
+      setMsgE("Preencha o tipo de gasto!")
+      return false
+    }
+    if(valor === ""){
+      setMsgE("Preencha o valor!")
+      console.log(msgE)
+      return false
+    }
+    
+    newObjInfo = {
+      "id": Date.now(),
+      "data": dataC,
+      "item": item,
+      "tipoGasto": tipoGasto,
+      "valor": valor
+    }
+  
+    setMsgE("")
+      
+    const arrayObj = [...objetoInfo, newObjInfo]
+    setObjetoInfo(arrayObj)
+
+    localStorage.setItem('financial',JSON.stringify(arrayObj))
+
+    console.log(objetoInfo)
   }
 
   return(
 
     <>
       <Header />
+      <div className='container'>
         <FormAdicao 
-         handleSubmit={handleSubmit} 
+          handleSubmit={handleSubmit} 
 
-         setDataC={setDataC} 
-         setItem={setItem} 
-         setTipoGasto={setTipoGasto} 
-         setValor={setValor}
+          setDataC={setDataC} 
+          setItem={setItem} 
+          setTipoGasto={setTipoGasto} 
+          setValor={setValor}
 
-         dataC={dataC}
-         item={item}
-         tipoGasto={tipoGasto}
-         valor={valor}
-         
+          dataC={dataC}
+          item={item}
+          tipoGasto={tipoGasto}
+          valor={valor}
+
+          msgE={msgE}
+          setMsgE={setMsgE}
+          
          />
-        <Table/>
-        <Soma/>
+         { msgE != '' &&  <p className='errorMessage'>{msgE}</p> }
+         {objetoInfo.length > 0 ? <Table setObjetoInfo={setObjetoInfo} objetoInfo={objetoInfo}/>  : <p className='title-not-items'>Não há itens para serem exibidos</p>}
+
+       
+        <Soma  objetoInfo={objetoInfo}/>
+        </div>
       <Footer/>
     </>
 
