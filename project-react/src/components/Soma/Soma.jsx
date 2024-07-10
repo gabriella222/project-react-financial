@@ -1,8 +1,12 @@
 import React from 'react'
 import './Soma.css'
+import { ContextList } from '../../context/ContextList'
 
-function Soma({objetoInfo}) {
-  const result = objetoInfo.reduce((acc, obj)=>(
+
+const cont = React.useContext(ContextList)
+
+function Soma() {
+  const result = cont.objetoInfo.reduce((acc, obj)=>(
      acc + Number(obj.valor)
   ),0)
   

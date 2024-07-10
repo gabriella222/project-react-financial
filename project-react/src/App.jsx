@@ -4,6 +4,9 @@ import Footer from './components/Footer/Footer'
 import FormAdicao from './components/FormAdicao/FormAdicao'
 import Table from './components/Table/Table'
 import Soma from './components/Soma/Soma'
+import Produto from '../testing/contexts/Produto'
+import { GlobalContext } from '../testing/contexts/Context'
+import { ContextList } from './context/ContextList'
 
 function App() {
 
@@ -12,17 +15,19 @@ function App() {
   const [item, setItem] = React.useState('');
   const [tipoGasto, setTipoGasto] = React.useState('');
   const [valor, setValor] = React.useState('');
-  const [objetoInfo, setObjetoInfo] = React.useState([]);
   const [msgE,  setMsgE] = React.useState('');
 
   let id = 1;
   let newObjInfo;
 
+  const cont = React.useContext(ContextList)
+
+
   useEffect(()=>{ 
     let recup = localStorage.getItem('financial') 
     if(recup){
       recup = JSON.parse(recup)
-      setObjetoInfo(recup)
+      cont.setObjetoInfo(recup)
     }
   },[])
   
@@ -57,22 +62,24 @@ function App() {
       "tipoGasto": tipoGasto,
       "valor": valor
     }
-  
+ 
     setMsgE("")
       
-    const arrayObj = [...objetoInfo, newObjInfo]
-    setObjetoInfo(arrayObj)
+    const arrayObj = [...cont.objetoInfo, newObjInfo]
+    cont.setObjetoInfo(arrayObj)
 
     localStorage.setItem('financial',JSON.stringify(arrayObj))
 
-    console.log(objetoInfo)
+    console.log(cont.objetoInfo)
   }
 
   return(
 
     <>
 
+    <ContextList>
       <Header />
+
       <div className='container'>
         <FormAdicao 
           handleSubmit={handleSubmit} 
@@ -92,12 +99,16 @@ function App() {
           
          />
          { msgE != '' &&  <p className='errorMessage'>{msgE}</p> }
-         {objetoInfo.length > 0 ? <Table setObjetoInfo={setObjetoInfo} objetoInfo={objetoInfo}/>  : <p className='title-not-items'>Não há itens para serem exibidos</p>}
+         {/* {cont.objetoInfo.length > 0 ? <Table setObjetoInfo={cont.setObjetoInfo} objetoInfo={cont.objetoInfo}/>  : <p className='title-not-items'>Não há itens para serem exibidos</p>} */}
 
        
-        <Soma  objetoInfo={objetoInfo}/>
+        <Soma />
         </div>
-      <Footer/>
+       <Footer/>
+      {/* <GlobalContext>
+          <Produto />
+      </GlobalContext>  -> Exemplo do uso do useContext*/}
+    </ContextList>
     </>
 
   )
